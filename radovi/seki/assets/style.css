@@ -41,11 +41,11 @@ svg{width:22px;height:22px;flex:none}
 .nav.open a{padding:16px 0;font:800 24px/1 Archivo,sans-serif;text-decoration:none;border-bottom:1px solid rgba(255,244,226,.14)}
 
 /* hero */
-.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
-.hero-ph{position:absolute;inset:0;z-index:-1}
-.hero-ph img{width:100%;height:112%;object-fit:cover;object-position:50% 70%;will-change:transform}
-.hero-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--ink) 0%,rgba(13,17,32,.86) 34%,rgba(13,17,32,.38) 66%,rgba(13,17,32,.5) 100%)}
-.hero-in{padding-top:110px;padding-bottom:calc(36px + env(safe-area-inset-bottom,0px))}
+.hero{position:relative;display:block;overflow:hidden;isolation:isolate}
+.hero-ph{position:relative;height:58svh;min-height:360px;overflow:hidden;background:var(--ink2)}
+.hero-ph img{width:100%;height:112%;object-fit:cover;object-position:50% 66%;will-change:transform}
+.hero-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--ink) 0%,rgba(13,17,32,0) 42%),linear-gradient(180deg,rgba(13,17,32,.55) 0%,rgba(13,17,32,0) 24%)}
+.hero-in{position:relative;margin-top:-64px;padding-bottom:calc(36px + env(safe-area-inset-bottom,0px))}
 .live{display:inline-flex;align-items:center;gap:10px;font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
 .live i{width:10px;height:10px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 0 rgba(255,176,46,.7);animation:pulse 2s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 12px rgba(255,176,46,0)}100%{box-shadow:0 0 0 0 rgba(255,176,46,0)}}
@@ -150,11 +150,11 @@ svg{width:22px;height:22px;flex:none}
   .nav a::after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:3px;background:var(--amber);transition:right .25s}
   .nav a:hover::after{right:0}
   .menu{display:none}
-  .hero{align-items:center}
-  .hero-ph{left:46%}
+  .hero{display:flex;min-height:100svh;align-items:center}
+  .hero-ph{position:absolute;inset:0 0 0 46%;height:auto;min-height:0;z-index:-1;background:none}
   .hero-ph img{height:100%;object-position:50% 62%}
   .hero-ph::after{background:linear-gradient(90deg,var(--ink) 0%,rgba(13,17,32,.55) 22%,rgba(13,17,32,0) 55%),linear-gradient(0deg,var(--ink) 0%,rgba(13,17,32,0) 30%)}
-  .hero-in{padding-bottom:70px}
+  .hero-in{margin-top:0;padding-top:110px;padding-bottom:70px}
   .hero h1,.hero .sub{max-width:760px}
   .bar{display:none}
   .fin{padding-bottom:26px}
