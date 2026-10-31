@@ -32,7 +32,7 @@
   </div>
 
   <nav class="mark" aria-label="Glavna navigacija">
-    <a class="wordmark" href="#vrh"><picture><source type="image/webp" srcset="slike/logo.webp"><img src="slike/logo.jpg" alt="Ignis hair" width="150" height="150"></picture><span>Ignis hair</span></a>
+    <a class="wordmark" href="#vrh"><picture><source type="image/webp" srcset="slike/logo-svetli.webp"><img src="slike/logo-svetli.png" alt="Ignis hair" width="150" height="150"></picture><span>Ignis hair</span></a>
     <span class="mark-links">
       <a href="#usluge">Usluge</a>
       <a href="#radovi">Radovi</a>
@@ -54,8 +54,8 @@
 <!-- ========== USLUGE ========== -->
 <section class="usluge" id="usluge" aria-labelledby="h-usluge">
   <div class="inner">
-    <h2 id="h-usluge" class="sec-h">Šta radi</h2>
-    <div class="cols">
+    <h2 id="h-usluge" class="sec-h" data-reveal>Šta radi</h2>
+    <div class="cols" data-reveal>
       <div class="col">
         <p class="grp">Za veliki dan</p>
         <ul class="names">
@@ -92,18 +92,25 @@
   </div>
 </section>
 
-<!-- ========== VELIKA SLIKA ========== -->
-<section class="pano" aria-label="Rad iz salona">
-  <picture>
-    <source type="image/webp" srcset="slike/crno-800.webp 800w, slike/crno.webp 1200w" sizes="100vw">
-    <img src="slike/crno.jpg" alt="Visoki rep, rad salona Ignis hair" width="1201" height="1600" loading="lazy" decoding="async">
-  </picture>
-  <p class="pano-t" data-reveal>Jedna frizura, jedna noć, nijedna ukosnica na podu.</p>
+<!-- ========== NOĆ NA TERENU ========== -->
+<section class="nocu" aria-labelledby="h-nocu">
+  <div class="nocu-v">
+    <video poster="slike/rad-poster.jpg" muted loop playsinline autoplay preload="metadata"
+           width="608" height="1080" aria-label="Dejana sređuje mladu pred venčanje, snimak bez zvuka">
+      <source src="slike/rad.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="nocu-t">
+    <h2 id="h-nocu" class="nocu-h" data-reveal>Ni nevreme, ni igranka.</h2>
+    <p data-reveal>Za svadbe Dejana kreće u dva ujutru i radi od tri, tako da su sve dame spremne do osam. Frizura mora da izdrži ceo dan i celu noć.</p>
+    <p class="nocu-c" data-reveal>Snimak sa njenog Instagrama, bez zvuka.</p>
+  </div>
 </section>
 
 <!-- ========== RADOVI ========== -->
 <section class="galerija" id="radovi" aria-labelledby="h-radovi">
-  <h2 id="h-radovi" class="gal-h">Radovi <span class="cnt">9</span></h2>
+  <h2 id="h-radovi" class="gal-h" data-reveal>Radovi</h2>
+  <p class="gal-n" data-reveal>Devet frizura iz salona</p>
   <div class="strip" tabindex="0" role="group" aria-label="Fotografije radova, pomerajte levo i desno">
     <figure><picture><source type="image/webp" srcset="slike/r1-800.webp"><img src="slike/r1-800.jpg" alt="Visoki rep sa glatkim razdeljkom" width="800" height="1069" loading="lazy" decoding="async"></picture></figure>
     <figure><picture><source type="image/webp" srcset="slike/r2-800.webp"><img src="slike/r2-800.jpg" alt="Duga kosa uz bordo haljinu" width="800" height="844" loading="lazy" decoding="async"></picture></figure>
@@ -124,7 +131,7 @@
     <img src="slike/r6.jpg" alt="Klijentkinja salona Ignis hair" width="1200" height="1600" loading="lazy" decoding="async">
   </picture>
   <div class="citat-in">
-    <blockquote data-reveal>„Lako se ugovara termin, bez čekanja, a frizura je trajna, bez pomeranja. Kako izađete iz salona, takvi se vraćate kući.”</blockquote>
+    <blockquote data-reveal>„Frizura je trajna, bez pomeranja. Kako izađete iz salona, takvi se vraćate kući.”</blockquote>
     <p class="ko" data-reveal>Sandra Mladenović · Google, 4. maj 2026.</p>
   </div>
 </section>
@@ -132,10 +139,10 @@
 <!-- ========== ŽIVA STVAR ========== -->
 <section class="prilika" id="prilika" aria-labelledby="h-prilika">
   <div class="inner">
-    <h2 id="h-prilika" class="sec-h">Kad ti je slavlje</h2>
-    <p class="lead">Izaberi priliku, pa ti kažem šta Dejana radi za nju i kad je najbolje da se javiš.</p>
+    <h2 id="h-prilika" class="sec-h" data-reveal>Kad ti je slavlje</h2>
+    <p class="lead" data-reveal>Izaberi priliku, pa ti kažem šta Dejana radi za nju i kad je najbolje da se javiš.</p>
 
-    <div class="tabs" role="tablist" aria-label="Prilika">
+    <div class="tabs" data-reveal role="tablist" aria-label="Prilika">
       <button role="tab" aria-selected="true"  aria-controls="p-svadba" id="t-svadba" data-p="svadba">Svadba</button>
       <button role="tab" aria-selected="false" aria-controls="p-matura" id="t-matura" data-p="matura" tabindex="-1">Matura</button>
       <button role="tab" aria-selected="false" aria-controls="p-slava"  id="t-slava"  data-p="slava"  tabindex="-1">Slava</button>
@@ -174,8 +181,8 @@
 <!-- ========== PITANJA ========== -->
 <section class="pitanja" id="pitanja" aria-labelledby="h-pitanja">
   <div class="pit-l">
-    <h2 id="h-pitanja" class="sec-h">Pitanja</h2>
-    <div class="fakti">
+    <h2 id="h-pitanja" class="sec-h" data-reveal>Pitanja</h2>
+    <div class="fakti" data-reveal>
       <p>Kneza Miloša 132, Ćuprija</p>
       <p>060 0628080</p>
       <p>Termin se dogovara pozivom ili porukom.</p>
@@ -208,7 +215,7 @@
     </div>
   </div>
 
-  <div class="pit-r">
+  <div class="pit-r" data-reveal>
     <picture class="pit-tall">
       <source type="image/webp" srcset="slike/r5-800.webp 800w, slike/r5.webp 1200w" sizes="(min-width:900px) 42vw, 100vw">
       <img src="slike/r5.jpg" alt="Svetli talasi, rad salona Ignis hair" width="1200" height="1600" loading="lazy" decoding="async">
@@ -223,8 +230,8 @@
 <!-- ========== DRUGE RECENZIJE ========== -->
 <section class="rec" aria-labelledby="h-rec">
   <div class="inner">
-    <h2 id="h-rec" class="sec-h">Šta kažu</h2>
-    <div class="rec-g">
+    <h2 id="h-rec" class="sec-h" data-reveal>Šta kažu</h2>
+    <div class="rec-g" data-reveal>
       <figure><blockquote>„Svaka čast frizerki Dejani, profesionalna, ljubazna i sve pohvale na njenom radu, preporučujemo od srca.”</blockquote><figcaption>Danijela Živković · 8. jul 2026.</figcaption></figure>
       <figure><blockquote>„Predivna devojka, pristupačna, farbam se i šišam već mesecima, i vrlo sam zadovoljna.”</blockquote><figcaption>Nataša Milošević · 15. april 2026.</figcaption></figure>
       <figure><blockquote>„Devojka divna, frizura top, nije mrdnula ni uprkos nevremenu, đuskanju. Sve preporuke.”</blockquote><figcaption>Dubravka Antić · 5. maj 2026.</figcaption></figure>
@@ -236,8 +243,11 @@
 
 <!-- ========== KONTAKT ========== -->
 <section class="kontakt" id="kontakt" aria-labelledby="h-kontakt">
-  <p class="k-uvod" id="h-kontakt">Javi datum i priliku, Dejana ti kaže da li je slobodna.</p>
-  <a class="k-tel" href="tel:+381600628080">060 0628080</a>
+  <div class="k-vrh">
+    <picture class="k-logo"><source type="image/webp" srcset="slike/logo-tamni.webp"><img src="slike/logo-tamni.png" alt="Ignis hair" width="150" height="150" loading="lazy"></picture>
+    <p class="k-uvod" id="h-kontakt" data-reveal>Javi datum i priliku, Dejana ti kaže da li je slobodna.</p>
+  </div>
+  <a class="k-tel" data-reveal href="tel:+381600628080">060 0628080</a>
   <div class="k-dno">
     <p>Kneza Miloša 132<br>35230 Ćuprija</p>
     <p class="k-soc">
@@ -251,7 +261,7 @@
 </main>
 
 <footer class="noga">
-  <div class="noga-logo"><picture><source type="image/webp" srcset="slike/logo.webp"><img src="slike/logo.jpg" alt="" width="150" height="150"></picture><p>Ignis hair · Dejana Đorđević PR<br>Kneza Miloša 132, Ćuprija</p></div>
+  <p>Ignis hair · Dejana Đorđević PR · Kneza Miloša 132, Ćuprija</p>
   <p class="noga-s">Sajt izradio <a href="https://sajtservis.github.io/" target="_blank" rel="noopener">Sajt Servis</a></p>
 </footer>
 

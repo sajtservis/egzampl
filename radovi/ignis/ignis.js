@@ -4,6 +4,11 @@
   var doc = document.documentElement;
   var tiho = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* 0. Snimak stoji ako korisnik ne zeli pokret */
+  if (tiho) {
+    document.querySelectorAll("video").forEach(function (v) { v.autoplay = false; v.pause(); });
+  }
+
   /* 1. Ulaz vrha stranice */
   requestAnimationFrame(function () { doc.classList.add("spreman"); });
 
@@ -80,7 +85,15 @@
     });
   });
 
-  /* 5. Traka za radove: točkić miša pomera vodoravno */
+  /* 5. Donja traka se sklanja kad se skroluje nadole, da ne pokriva tekst */
+  var zadnji = 0;
+  window.addEventListener("scroll", function () {
+    var y = window.scrollY, dno = y + window.innerHeight >= document.body.scrollHeight - 80;
+    doc.classList.toggle("traka-skriven", y > 240 && y > zadnji && !dno);
+    zadnji = y;
+  }, { passive: true });
+
+  /* 6. Traka za radove: točkić miša pomera vodoravno */
   var traka = document.querySelector(".strip");
   if (traka) {
     traka.addEventListener("wheel", function (e) {

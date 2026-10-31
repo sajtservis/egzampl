@@ -6,7 +6,7 @@
   --bg:#0C0A08;
   --surface:#171411;
   --ink:#FFFFFF;
-  --muted:#A49E97;
+  --muted:#B9B3AB;
   --bez:#E4DAD0;             /* krug iz logoa */
   --list:#89B56F;            /* bršljan iz logoa */
   --list-t:#6D9A5E;
@@ -56,28 +56,26 @@ button{font:inherit; color:inherit; background:none; border:0; padding:0; cursor
 .mark{
   position:absolute; top:0; left:0; right:0; z-index:2;
   display:flex; justify-content:space-between; align-items:center; gap:16px;
-  padding:18px var(--gr) 0 var(--gl); font-size:15px;
+  padding:18px var(--gr) 0 var(--gl); font-size:16px; z-index:3;
 }
 .wordmark{display:flex; align-items:center; gap:10px; font-weight:500; text-decoration:none; letter-spacing:.01em}
-.wordmark img{width:38px; height:38px; border-radius:50%}
 .mark-links{display:flex; gap:18px}
 .mark-links a{text-decoration:none; color:#E6E1DB}
 .mark-links a:hover{color:var(--ink)}
 @media (max-width:760px){ .mark-links a:not(.m-ig){display:none} }
 
-.h1{display:contents}
+.h1{grid-row:1; z-index:1; margin:74px 0 0; padding:0 var(--gr) 0 var(--gl)}
 .l1,.l2{
-  display:block; position:relative; z-index:1;
+  display:block;
   font-family:var(--display); font-size:clamp(62px,15.5vw,172px);
   line-height:.84; letter-spacing:-.015em; color:var(--bez);
 }
-.l1{grid-row:1; padding-left:var(--gl); margin-top:72px}
-.l2{grid-row:3; padding-right:var(--gr); padding-bottom:74px; text-align:right}
-.hero-mid{grid-row:2; position:relative; z-index:1; align-self:center; padding:0 var(--gr) 0 var(--gl)}
-.hero-mid p{max-width:40ch; font-size:18px; line-height:1.5; color:#F0ECE7; margin-bottom:24px}
+.l2{position:absolute; left:var(--gl); right:var(--gr); bottom:78px; text-align:right}
+.hero-mid{grid-row:2; align-self:center; position:relative; z-index:2; padding:0 var(--gr) 0 var(--gl)}
+.hero-mid p{max-width:40ch; font-size:18px; line-height:1.5; color:var(--ink); margin-bottom:24px}
 @media (min-width:900px){
-  .l1{margin-top:40px}
-  .l2{text-align:left; padding-left:30vw; padding-right:0; padding-bottom:14px}
+  .h1{margin-top:58px; padding:0 var(--gr) 0 var(--gl)}
+  .l2{left:30vw; right:var(--gr); bottom:26px; text-align:left}
   .hero-mid{padding-left:30vw}
 }
 
@@ -121,22 +119,25 @@ button{font:inherit; color:inherit; background:none; border:0; padding:0; cursor
 .op{color:var(--ink); line-height:1.45; max-width:30ch}
 @media (max-width:899px){ .op{display:none} }
 
-/* ---------------- VELIKA SLIKA ---------------- */
-.pano{position:relative; margin-block:0}
-.pano img{width:100%; height:62svh; min-height:360px; object-fit:cover; object-position:50% 24%; filter:brightness(.6)}
-.pano-t{
-  position:absolute; left:var(--gl); right:var(--gr); bottom:clamp(28px,5vw,56px);
-  font-family:var(--display); font-size:clamp(26px,4.4vw,44px); line-height:1.1; max-width:18ch;
-  color:var(--bez);
+/* ---------------- NOĆ NA TERENU ---------------- */
+.nocu{
+  display:grid; grid-template-columns:1fr; gap:clamp(28px,4vw,56px);
+  align-items:center; padding:var(--sec) var(--gr) var(--sec) var(--gl);
+  max-width:1240px; margin:0 auto;
 }
+@media (min-width:900px){ .nocu{grid-template-columns:38% 1fr; gap:clamp(44px,5vw,80px)} }
+.nocu-v video{width:100%; height:auto; aspect-ratio:608/1080; object-fit:cover; display:block; background:var(--surface)}
+.nocu-h{font-family:var(--display); font-size:clamp(28px,4vw,40px); line-height:1.1; color:var(--bez); margin-bottom:18px}
+.nocu-t p{color:var(--muted); max-width:46ch}
+.nocu-c{margin-top:16px; font-size:16px}
 
 /* ---------------- RADOVI ---------------- */
 .galerija{min-height:78svh; display:flex; flex-direction:column; justify-content:center; padding-block:clamp(56px,8vw,96px)}
 .gal-h{
   font-family:var(--display); font-size:clamp(24px,3vw,30px);
-  padding-left:var(--gl); margin-bottom:18px;
+  padding-left:var(--gl); margin-bottom:6px;
 }
-.cnt{font-family:var(--body); font-size:15px; color:var(--muted); vertical-align:super; margin-left:6px}
+.gal-n{font-size:16px; color:var(--muted); padding-left:var(--gl); margin:0 0 16px}
 .strip{
   display:flex; gap:5vw; overflow-x:auto; padding:0 var(--gr) 14px var(--gl);
   scroll-snap-type:x mandatory; scrollbar-width:none;
@@ -159,9 +160,9 @@ button{font:inherit; color:inherit; background:none; border:0; padding:0; cursor
 }
 .citat blockquote{
   margin:0; font-family:var(--display);
-  font-size:clamp(23px,3.4vw,34px); line-height:1.22;
+  font-size:clamp(22px,3.2vw,32px); line-height:1.25;
 }
-.ko{margin-top:18px; font-size:16px; color:#D9D4CE}
+.ko{margin-top:18px; font-size:16px; color:var(--bez)}
 
 /* ---------------- ŽIVA STVAR ---------------- */
 .prilika{padding-block:var(--sec); background:var(--surface)}
@@ -174,7 +175,7 @@ button{font:inherit; color:inherit; background:none; border:0; padding:0; cursor
 .tabs button[aria-selected="true"]{background:var(--ink); color:#0C0A08; font-weight:500}
 .panes{margin-top:clamp(28px,4vw,40px)}
 .pane{max-width:56ch}
-.pane-t{font-family:var(--display); font-size:clamp(23px,3.2vw,32px); line-height:1.15}
+.pane-t{font-family:var(--display); font-size:clamp(22px,3.2vw,32px); line-height:1.15}
 .pane-d{margin-top:14px; color:var(--muted)}
 .pane-k{margin-top:14px; margin-bottom:26px}
 
@@ -190,7 +191,7 @@ button{font:inherit; color:inherit; background:none; border:0; padding:0; cursor
 .fakti p{margin-bottom:5px}
 .pitanja details{padding:0; margin-bottom:26px}
 .pitanja summary{
-  list-style:none; cursor:pointer; font-size:19px; position:relative;
+  list-style:none; cursor:pointer; font-size:18px; position:relative;
   padding-right:34px; min-height:44px; display:flex; align-items:center;
 }
 .pitanja summary::-webkit-details-marker{display:none}
@@ -218,30 +219,30 @@ button{font:inherit; color:inherit; background:none; border:0; padding:0; cursor
 }
 @media (min-width:760px){ .rec-g{grid-template-columns:repeat(2,1fr); gap:44px} }
 .rec figure{margin:0; max-width:46ch}
-.rec blockquote{margin:0; font-size:18px; line-height:1.5}
-.rec figcaption{margin-top:12px; color:var(--muted); font-size:15.5px}
+.rec blockquote{margin:0; font-size:18px; line-height:1.5; color:var(--ink)}
+.rec figcaption{margin-top:12px; color:var(--muted); font-size:16px}
 .rec-s{margin-top:clamp(34px,4vw,48px)}
 
 /* ---------------- KONTAKT (obrnute boje) ---------------- */
 .kontakt{
   background:var(--paper); color:#0C0A08;
-  min-height:86svh; display:flex; flex-direction:column; justify-content:space-between;
+  min-height:min(72svh,640px); display:flex; flex-direction:column; justify-content:space-between; gap:clamp(36px,7vw,72px);
   padding:clamp(32px,6vw,56px) var(--gr) clamp(96px,10vw,56px) var(--gl);
 }
-.k-uvod{font-size:clamp(19px,2.3vw,22px); max-width:30ch}
+.k-uvod{font-size:clamp(18px,2.2vw,22px); max-width:30ch}
 .k-tel{
   font-family:var(--display); font-size:clamp(46px,13.5vw,170px);
   line-height:.95; text-decoration:none; letter-spacing:-.02em;
   align-self:flex-start; transition:color .2s ease;
 }
 .k-tel:hover{color:#4A6B3C}
-.k-dno{display:flex; justify-content:space-between; gap:22px; flex-wrap:wrap; font-size:15.5px}
+.k-dno{display:flex; justify-content:space-between; gap:22px; flex-wrap:wrap; font-size:16px}
 .k-dno p{color:#4A443D}
 .k-soc{display:flex; gap:18px}
 .k-soc a{color:#0C0A08}
 
 .noga{
-  padding:34px var(--gr) 110px var(--gl); font-size:15px; color:var(--muted);
+  padding:34px var(--gr) 110px var(--gl); font-size:16px; color:var(--muted);
   display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
 }
 .noga a{color:var(--muted)}
@@ -251,8 +252,9 @@ button{font:inherit; color:inherit; background:none; border:0; padding:0; cursor
 .traka{
   position:fixed; left:0; right:0; bottom:0; z-index:40; display:flex;
   padding-bottom:env(safe-area-inset-bottom, 0px);
-  background:var(--bg); border-top:0;
+  background:var(--bg); transition:transform .25s ease;
 }
+.traka-skriven .traka{transform:translateY(115%)}
 .traka a{
   flex:1; min-height:56px; display:flex; align-items:center; justify-content:center;
   text-decoration:none; font-weight:500; background:var(--ink); color:#0C0A08;
@@ -279,6 +281,8 @@ button{font:inherit; color:inherit; background:none; border:0; padding:0; cursor
   .hero-bg img{animation:none}
 }
 
-/* logo u podnožju */
-.noga-logo{display:flex; align-items:center; gap:12px}
-.noga-logo img{width:46px; height:46px; border-radius:50%}
+/* logo */
+.wordmark img{width:42px; height:42px; border-radius:0}
+.k-vrh{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
+.k-logo img{width:76px; height:76px}
+@media (min-width:900px){ .k-logo img{width:96px; height:96px} }
