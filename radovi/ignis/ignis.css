@@ -119,18 +119,6 @@ button{font:inherit; color:inherit; background:none; border:0; padding:0; cursor
 .op{color:var(--ink); line-height:1.45; max-width:30ch}
 @media (max-width:899px){ .op{display:none} }
 
-/* ---------------- NOĆ NA TERENU ---------------- */
-.nocu{
-  display:grid; grid-template-columns:1fr; gap:clamp(28px,4vw,56px);
-  align-items:center; padding:var(--sec) var(--gr) var(--sec) var(--gl);
-  max-width:1240px; margin:0 auto;
-}
-@media (min-width:900px){ .nocu{grid-template-columns:38% 1fr; gap:clamp(44px,5vw,80px)} }
-.nocu-v video{width:100%; height:auto; aspect-ratio:608/1080; object-fit:cover; display:block; background:var(--surface)}
-.nocu-h{font-family:var(--display); font-size:clamp(28px,4vw,40px); line-height:1.1; color:var(--bez); margin-bottom:18px}
-.nocu-t p{color:var(--muted); max-width:46ch}
-.nocu-c{margin-top:16px; font-size:16px}
-
 /* ---------------- RADOVI ---------------- */
 .galerija{min-height:78svh; display:flex; flex-direction:column; justify-content:center; padding-block:clamp(56px,8vw,96px)}
 .gal-h{
