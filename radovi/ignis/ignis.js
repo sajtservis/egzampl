@@ -101,3 +101,53 @@
     }, { passive: false });
   }
 })();
+
+/* 7. Uvećana slika na klik */
+(function () {
+  "use strict";
+  var lupa = document.getElementById("lupa");
+  if (!lupa) return;
+  var slika = document.getElementById("lupa-img"),
+      webp = document.getElementById("lupa-webp"),
+      opis = document.getElementById("lupa-t"),
+      dugmad = Array.prototype.slice.call(document.querySelectorAll(".gl-btn")),
+      gde = 0, vratiNa = null;
+
+  function pokazi(i) {
+    gde = (i + dugmad.length) % dugmad.length;
+    var b = dugmad[gde];
+    webp.srcset = b.dataset.pun + ".webp";
+    slika.src = b.dataset.pun + ".jpg";
+    slika.alt = b.dataset.opis || "";
+    opis.textContent = b.dataset.opis + "  ·  " + (gde + 1) + " od " + dugmad.length;
+  }
+  function otvori(i) {
+    vratiNa = dugmad[i];
+    pokazi(i);
+    lupa.hidden = false;
+    document.body.classList.add("zakljucano");
+    document.getElementById("lupa-x").focus();
+  }
+  function zatvori() {
+    lupa.hidden = true;
+    document.body.classList.remove("zakljucano");
+    if (vratiNa) vratiNa.focus();
+  }
+  dugmad.forEach(function (b, i) { b.addEventListener("click", function () { otvori(i); }); });
+  document.getElementById("lupa-x").addEventListener("click", zatvori);
+  document.getElementById("lupa-p").addEventListener("click", function () { pokazi(gde - 1); });
+  document.getElementById("lupa-s").addEventListener("click", function () { pokazi(gde + 1); });
+  lupa.addEventListener("click", function (e) { if (e.target === lupa) zatvori(); });
+  document.addEventListener("keydown", function (e) {
+    if (lupa.hidden) return;
+    if (e.key === "Escape") { e.preventDefault(); zatvori(); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); pokazi(gde + 1); }
+    else if (e.key === "ArrowLeft") { e.preventDefault(); pokazi(gde - 1); }
+    else if (e.key === "Tab") {           // zadrzi fokus u prozoru
+      var f = lupa.querySelectorAll("button");
+      var prvi = f[0], zadnji = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === prvi) { e.preventDefault(); zadnji.focus(); }
+      else if (!e.shiftKey && document.activeElement === zadnji) { e.preventDefault(); prvi.focus(); }
+    }
+  });
+})();
